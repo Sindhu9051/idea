@@ -33,7 +33,7 @@ const VerifyCertificate = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post("http://localhost:65136/api/certificate", {
+      const response = await axios.post("https://idea-0lof.onrender.com/api/certificate", {
         certificateId,
       });
 
