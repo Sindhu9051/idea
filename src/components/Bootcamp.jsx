@@ -34,7 +34,7 @@ const BootcampForm = () => {
     setErrorMessage('');
 
     try {
-      const response = await fetch('http://localhost:65136/api/bootcamp', {
+      const response = await fetch('https://idea-0lof.onrender.com/api/bootcamp', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
