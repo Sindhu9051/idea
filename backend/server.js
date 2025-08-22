@@ -9,6 +9,11 @@ const PORT = process.env.PORT || 65136;
 app.use(cors());
 app.use(express.json()); // 🟢 THIS LINE is required to parse JSON body
 
+app.get("/", (req, res) => {
+  res.send("Server is working properly.");
+});
+
+
 // Routes
 app.use("/api/certificate", require("./routes/certificate"));
 app.use("/api/webinar", require("./routes/webinar"));
