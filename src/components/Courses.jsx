@@ -2,6 +2,14 @@
 import React, { useState } from "react";
 import { AiFillStar } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
+// eslint-disable-next-line no-unused-vars
+import {motion} from 'framer-motion'
+
+const fadeInUp = {
+hidden: { opacity: 0, y: 40 },
+visible: { opacity: 1, y: 0, transition: { duration: 2 } },
+};
+
 
 
 // Dummy course data categorized into Future Geniuses, IT, and Non-IT
@@ -10,7 +18,7 @@ const allCourses = {
     {
       id: 1,
       name: "Scratch Programming",
-      image: "https://source.unsplash.com/400x250/?kids,code",
+      image: "/images/factory.png",
       detail: "Build games and animations using Scratch.",
       difficulty: "Beginner",
       rating: 5,
@@ -21,7 +29,7 @@ const allCourses = {
     {
       id: 2,
       name: "Fun with Math",
-      image: "https://source.unsplash.com/400x250/?kids,math",
+      image: "/images/math.png",
       detail: "Math games and logic puzzles.",
       difficulty: "Beginner",
       rating: 4,
@@ -217,15 +225,16 @@ const Courses = () => {
   return (
     <div className="py-10 min-h-screen bg-gray-50 text-gray-900">
       {/* Header */}
-      <header className="text-center py-12 bg-gradient-to-r from-indigo-600 to-purple-600 text-white">
+      <motion.header className="text-center py-12 bg-gradient-to-r from-indigo-600 to-purple-600 text-white" variants={fadeInUp} initial="hidden" animate="visible">
         <h1 className="text-4xl font-bold">📚 Explore Our Courses</h1>
         <p className="mt-2 text-lg">Choose a category and start learning today!</p>
-      </header>
+      </motion.header>
 
       {/* Category Buttons */}
-      <div className="flex justify-center gap-4 my-8">
+      <motion.div className="flex justify-center gap-4 my-8" variants={fadeInUp} initial="hidden" animate="visible">
         {["Future Geniuses", "IT", "Non-IT"].map((cat) => (
-          <button
+          <motion.button
+            whileHover={{ scale: 1.05 }}
             key={cat}
             onClick={() => {
               setCategory(cat);
@@ -238,9 +247,9 @@ const Courses = () => {
             }`}
           >
             {cat}
-          </button>
+          </motion.button>
         ))}
-      </div>
+      </motion.div>
 
       {/* Search Bar */}
       <div className="flex justify-center mb-8 px-4">
@@ -257,7 +266,8 @@ const Courses = () => {
       <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-6 pb-20">
         {filteredCourses.length > 0 ? (
           filteredCourses.map((course) => (
-            <div
+            <motion.div
+              whileHover={{ scale: 1.05 }}
               key={course.id}
               className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all overflow-hidden"
             >
@@ -298,7 +308,7 @@ const Courses = () => {
                   </span>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))
         ) : (
           <p className="text-center col-span-full text-gray-500 text-sm">
@@ -362,19 +372,21 @@ const Courses = () => {
                 {selectedCourse.price}
               </span>
             </div>
-            <button
-                onClick={() =>
-                  navigate("/payment", {
-                    state: {
-                      name: selectedCourse.name,
-                      price: selectedCourse.price.replace("₹", "").trim()
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() =>
+                navigate("/payment", {
+                  state: {
+                    name: selectedCourse.name,
+                    price: selectedCourse.price.replace("₹", "").trim()
                     }
                   })
                 }
                 className="mt-4 w-full bg-indigo-600 hover:bg-indigo-700 text-white py-2 rounded-lg transition"
               >
                 Enroll Now
-              </button>
+              </motion.button>
 
           </div>
         </div>

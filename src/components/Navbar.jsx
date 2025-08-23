@@ -1,5 +1,23 @@
 import React, { useState } from "react";
 
+// eslint-disable-next-line no-unused-vars
+import {motion} from 'framer-motion'
+
+const fadeInLeft = {
+hidden: { opacity: 0, x: -60 },
+visible: { opacity: 1, x: 0, transition: { duration: 1 } },
+};
+
+const fadeInRight = {
+hidden: { opacity: 0, x: 60 },
+visible: { opacity: 1, x: 0, transition: { duration: 1 } },
+};
+
+const fadeInUp = {
+hidden: { opacity: 0, y: 40 },
+visible: { opacity: 1, y: 0, transition: { duration: 2 } },
+};
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -10,33 +28,36 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
             {/* Logo */}
-            <img 
-                src="images/xxxx.png" 
-                alt="Skilledin" 
-                className="h-15 w-30" 
+            <motion.img 
+                src="images/GF.png" 
+                alt="geniusfactory" 
+                className="h-17 w-17" 
+                variants={fadeInRight}
+                initial="hidden"
+                animate="visible"
             />
 
             {/* Desktop Menu */}
-            <div className="hidden md:flex space-x-8">
-                <a href="/" className="text-white font-bold hover:text-[#864993] transition">
+            <motion.div className="hidden md:flex space-x-8" variants={fadeInLeft} initial="hidden" animate="visible">
+                <motion.a href="/" className="text-white font-bold hover:text-[#864993] transition"  whileHover={{ scale: 1.3 }}>
                 Home
-                </a>
-                <a href="/AllCrs" className="text-white font-bold hover:text-[#864993] transition">
+                </motion.a>
+                <motion.a href="/AllCrs" className="text-white font-bold hover:text-[#864993] transition"  whileHover={{ scale: 1.3 }}>
                 Courses
-                </a>
-                <a href="/verify-certificates" className="text-white font-bold hover:text-[#864993] transition">
+                </motion.a>
+                <motion.a href="/verify-certificates" className="text-white font-bold hover:text-[#864993] transition"  whileHover={{ scale: 1.3 }}>
                 Verify Certificates
-                </a>
-                <a href="/about" className="text-white font-bold hover:text-[#864993] transition">
+                </motion.a>
+                <motion.a href="/about" className="text-white font-bold hover:text-[#864993] transition"  whileHover={{ scale: 1.3 }}>
                 About Us
-                </a>
-                <a href="/contact" className="text-white font-bold hover:text-[#864993] transition">
+                </motion.a>
+                <motion.a href="/contact" className="text-white font-bold hover:text-[#864993] transition"  whileHover={{ scale: 1.3 }}>
                 Contact Us
-                </a>
-          </div>
+                </motion.a>
+          </motion.div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center">
+          <div className="md:hidden flex items-center" >
                 <button onClick={toggleMenu} className="text-gray-700 focus:outline-2">
                     <svg
                         className="w-6 h-6"
@@ -66,24 +87,24 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden px-4 pb-4 flex flex-col space-y-2 bg-gray-900">
-          <a href="/" className="block py-2 text-white font-bold hover:text-slate-600">
+        <motion.div className="md:hidden px-4 pb-4 flex flex-col space-y-2 bg-gray-900" variants={fadeInUp} initial="hidden" animate="visible">
+          <motion.a href="/" className="block py-2 text-white font-bold hover:text-slate-600">
             Home
-          </a>
-          <a href="/AllCrs" className="block py-2 text-white font-bold hover:text-slate-600">
+          </motion.a>
+          <motion.a href="/AllCrs" className="block py-2 text-white font-bold hover:text-slate-600"  whileHover={{ scale: 1.05 }}>
             Courses
-          </a>
-          <a href="/verify-certificates" className="block py-2 text-white font-bold hover:text-slate-600">
+          </motion.a>
+          <motion.a href="/verify-certificates" className="block py-2 text-white font-bold hover:text-slate-600"  whileHover={{ scale: 1.05 }}>
             Verify Certificates
-          </a>
-          <a href="/about" className="block py-2 text-white font-bold hover:text-slate-600">
+          </motion.a>
+          <motion.a href="/about" className="block py-2 text-white font-bold hover:text-slate-600"  whileHover={{ scale: 1.05 }}>
             About Us
-          </a>
-          <a href="/contact" className="block py-2 text-white font-bold hover:text-slate-600">
+          </motion.a>
+          <motion.a href="/contact" className="block py-2 text-white font-bold hover:text-slate-600"  whileHover={{ scale: 1.05 }}>
             Contact Us
-          </a>
+          </motion.a>
           
-        </div>
+        </motion.div>
       )}
     </nav>
   );

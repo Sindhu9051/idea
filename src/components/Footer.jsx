@@ -9,7 +9,7 @@ const Footer = () => {
 
         {/* Brand & Description */}
         <div>
-          <h2 className="text-3xl font-bold mb-4 text-white">Skilledin</h2>
+          <h2 className="text-3xl font-bold mb-4 text-white">geniusfactory</h2>
           <p className="text-gray-400">Crafting digital experiences with style and soul.</p>
         </div>
 
@@ -48,7 +48,7 @@ const Footer = () => {
 
       {/* Footer Bottom */}
       <div className="border-t border-gray-700 py-6 text-center text-gray-400 text-sm">
-        © {new Date().getFullYear(2025)} Skilledin || All rights reserved.
+        © {new Date().getFullYear(2025)} geniusfactory || All rights reserved.
       </div>
 
       {/* Decorative Background Blur */}
