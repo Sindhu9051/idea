@@ -57,7 +57,7 @@ const Navbar = () => {
           </motion.div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center" >
+          <motion.div className="md:hidden flex items-center" variants={fadeInUp} initial="hidden" animate="visible">
                 <button onClick={toggleMenu} className="text-gray-700 focus:outline-2">
                     <svg
                         className="w-6 h-6"
@@ -81,7 +81,7 @@ const Navbar = () => {
                         )}
                     </svg>
                 </button>
-          </div>
+          </motion.div>
         </div>
       </div>
 
