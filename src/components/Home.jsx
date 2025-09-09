@@ -1,7 +1,15 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from "react-helmet-async";
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
+
+
+
+
+
+
+    
 
 
 
@@ -55,28 +63,28 @@ const services = [
   {
     boximg: "images/training1.png",
     title: 'Training',
-    description: `geniusfactory offers hands-on training programs in backend, frontend, full-stack development, and more. Students gain practical skills through live classes, projects, and internships, preparing them for successful careers in tech.`,
+    description: `Geniuses Factory offers hands-on training programs in backend, frontend, full-stack development, and more. Students gain practical skills through live classes, projects, and internships, preparing them for successful careers in tech.`,
     button: 'Training',
     id: 'courses',
   },
   {
     boximg: "images/intern.png",
     title: 'Internship',
-    description: `geniusfactory offers hands-on internships in frontend, backend, and full-stack development, providing real-world experience and mentorship to help interns build their skills and prepare for tech careers.`,
+    description: `Geniuses Factory offers hands-on internships in frontend, backend, and full-stack development, providing real-world experience and mentorship to help interns build their skills and prepare for tech careers.`,
     button: 'Internship',
     id: 'internship',
   },
   {
     boximg: "images/bootcamp.png",
     title: 'Bootcamp',
-    description: `geniusfactory's upcoming Bootcamp offers intensive training in web development, AI/ML, Ethical Hacking and more. Through expert-led sessions, practical assignments, and hands-on projects, you'll gain job-ready skills in no time.`,
+    description: `Geniuses Factory's upcoming Bootcamp offers intensive training in web development, AI/ML, Ethical Hacking and more. Through expert-led sessions, practical assignments, and hands-on projects, you'll gain job-ready skills in no time.`,
     button: 'Bootcamp',
     id: 'bootcamp',
   },
   {
     boximg: "images/team work.png",
     title: 'Team Work Projects',
-    description: `geniusfactory will soon start a program in which some teams will be formed, they will have to make an industry level project with their team, the teams which make good projects will be given a gift from our side.`,
+    description: `Geniuses Factory will soon start a program in which some teams will be formed, they will have to make an industry level project with their team, the teams which make good projects will be given a gift from our side.`,
     button: 'Team Work',
     //id: 'team-work',
   },
@@ -88,42 +96,49 @@ const reviews = [
     name: "Atish Kumar",
     role: "Front-End Intern",
     review:
-      "Joining geniusfactory has been one of the best decisions in my learning journey! The training sessions are packed with real-world insights, and the projects truly challenge you to apply what you learn. From backend essentials to advanced web development techniques, this program gives you all the tools you need to succeed!",
+      "Joining Geniuses Factory has been one of the best decisions in my learning journey! The training sessions are packed with real-world insights, and the projects truly challenge you to apply what you learn. From backend essentials to advanced web development techniques, this program gives you all the tools you need to succeed!",
   },
   {
     star: "M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957h4.163c.969 0 1.371 1.24.588 1.81l-3.37 2.449 1.286 3.957c.3.921-.755 1.688-1.538 1.118L10 13.347l-3.37 2.449c-.783.57-1.838-.197-1.538-1.118l1.286-3.957-3.37-2.449c-.783-.57-.38-1.81.588-1.81h4.163l1.286-3.957z",
     name: "Joydeep Banerjee",
     role: "Back-End Trainee",
     review:
-      "A fantastic platform for college students looking to boost their skills! geniusfactory combines practical training with an internship experience that makes you feel like a real developer. I completed my backend training here and am now much more job-ready – thank you, geniusfactory!",
+      "A fantastic platform for college students looking to boost their skills! Geniuses Factory combines practical training with an internship experience that makes you feel like a real developer. I completed my backend training here and am now much more job-ready – thank you, Geniuses Factory!",
   },
   {
     star: "M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957h4.163c.969 0 1.371 1.24.588 1.81l-3.37 2.449 1.286 3.957c.3.921-.755 1.688-1.538 1.118L10 13.347l-3.37 2.449c-.783.57-1.838-.197-1.538-1.118l1.286-3.957-3.37-2.449c-.783-.57-.38-1.81.588-1.81h4.163l1.286-3.957z",
     name: "Priyanshu Kumari",
     role: "Python Intern",
     review:
-      "geniusfactory internship program has been an eye-opener! The hands-on experience with industry-relevant projects and one-on-one guidance is unmatched. Not only did I learn new skills, but I also gained confidence to take on bigger challenges in my tech career!",
+      "Geniuses Factory internship program has been an eye-opener! The hands-on experience with industry-relevant projects and one-on-one guidance is unmatched. Not only did I learn new skills, but I also gained confidence to take on bigger challenges in my tech career!",
   },
   {
     star: "M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957h4.163c.969 0 1.371 1.24.588 1.81l-3.37 2.449 1.286 3.957c.3.921-.755 1.688-1.538 1.118L10 13.347l-3.37 2.449c-.783.57-1.838-.197-1.538-1.118l1.286-3.957-3.37-2.449c-.783-.57-.38-1.81.588-1.81h4.163l1.286-3.957z",
     name: "Tanmoy Gain",
     role: "Back-End Trainee",
     review:
-      "The best part of geniusfactory is the exceptional mentorship and support. I learned so much about Node.js, MongoDB, and API development in the backend program. The instructors make sure every concept is crystal clear, and the certificates are great for showcasing my new technical skills. Highly recommend!",
+      "The best part of Geniuses Factory is the exceptional mentorship and support. I learned so much about Node.js, MongoDB, and API development in the backend program. The instructors make sure every concept is crystal clear, and the certificates are great for showcasing my new technical skills. Highly recommend!",
   },
   {
     star: "M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957h4.163c.969 0 1.371 1.24.588 1.81l-3.37 2.449 1.286 3.957c.3.921-.755 1.688-1.538 1.118L10 13.347l-3.37 2.449c-.783.57-1.838-.197-1.538-1.118l1.286-3.957-3.37-2.449c-.783-.57-.38-1.81.588-1.81h4.163l1.286-3.957z",
     name: "Vivek Kumar",
     role: "Ethical Hacking Trainee",
     review:
-      "The best part of geniusfactory is the exceptional mentorship and support. I learned so much about ethical hacking techniques, penetration testing, and security protocols in the ethical hacking program. The instructors make sure every concept is crystal clear, and the certificates are great for showcasing my new technical skills. Highly recommend!",
+      "The best part of Geniuses Factory is the exceptional mentorship and support. I learned so much about ethical hacking techniques, penetration testing, and security protocols in the ethical hacking program. The instructors make sure every concept is crystal clear, and the certificates are great for showcasing my new technical skills. Highly recommend!",
   },
   {
     star: "M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957h4.163c.969 0 1.371 1.24.588 1.81l-3.37 2.449 1.286 3.957c.3.921-.755 1.688-1.538 1.118L10 13.347l-3.37 2.449c-.783.57-1.838-.197-1.538-1.118l1.286-3.957-3.37-2.449c-.783-.57-.38-1.81.588-1.81h4.163l1.286-3.957z",
     name: "Praveen Kumar Saw",
     role: "Python Trainee",
     review:
-      "The best part of geniusfactory is the exceptional mentorship and support. I learned so much about Python, Flask, and API development in the Python program. The instructors make sure every concept is crystal clear, and the certificates are great for showcasing my new technical skills. Highly recommend!",
+      "The best part of Geniuses Factory is the exceptional mentorship and support. I learned so much about Python, Flask, and API development in the Python program. The instructors make sure every concept is crystal clear, and the certificates are great for showcasing my new technical skills. Highly recommend!",
+  },
+  {
+    star: "M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957h4.163c.969 0 1.371 1.24.588 1.81l-3.37 2.449 1.286 3.957c.3.921-.755 1.688-1.538 1.118L10 13.347l-3.37 2.449c-.783.57-1.838-.197-1.538-1.118l1.286-3.957-3.37-2.449c-.783-.57-.38-1.81.588-1.81h4.163l1.286-3.957z",
+    name: "Himadri Sarkar",
+    role: "Front-end Trainee",
+    review:
+      "The best part of Geniuses Factory is the exceptional mentorship and support. I learned so much about HTML, CSS, and JavaScript in the Front-end program. The instructors make sure every concept is crystal clear, and the certificates are great for showcasing my new technical skills. Highly recommend!",
   },
 ];
 
@@ -136,6 +151,17 @@ const Home = () => {
 
   return (
     <>
+        <Helmet>
+            <title>Geniuses Factory | Best Coding & AI Learning Platform</title>
+            <meta
+            name="description"
+            content="Learn coding, AI, and robotics at Geniuses Factory."
+            />
+            <meta
+            name="keywords"
+            content="Geniuses Factory, coding, AI, robotics"
+            />
+        </Helmet>
         <section variants={fadeInUp} className="py-20 ">
             <motion.div className="max-w-7xl mx-auto px-4 grid grid-cols md:grid-cols-2 mt-5">
                     {/* Left: Text Content */}
@@ -148,7 +174,7 @@ const Home = () => {
                             How to <span className="text-[#878bde]">Boost up your Skills</span>
                         </motion.h1>
                         <motion.p className="text-gray-600 mb-6">
-                            Enhance your skills with geniusfactory expert-led training programs courses and real-world projects. Equip yourself with the knowledge and experience needed to excel in today’s tech industry.
+                            Enhance your skills with Geniuses Factory expert-led training programs courses and real-world projects. Equip yourself with the knowledge and experience needed to excel in today’s tech industry.
                         </motion.p>
                         <motion.div>
                             <motion.button whileHover={{ scale: 1.05 }}
@@ -267,7 +293,7 @@ const Home = () => {
                     Industry-Relevant Curriculum
                 </h2>
                 <p className="text-gray-700 text-lg leading-relaxed">
-                    geniusfactory provides a carefully crafted curriculum designed to match the latest industry standards. It covers essential technologies and tools to ensure that students gain the practical knowledge required for real-world projects.
+                    Geniuses Factory provides a carefully crafted curriculum designed to match the latest industry standards. It covers essential technologies and tools to ensure that students gain the practical knowledge required for real-world projects.
                 </p>
             </motion.div>
 
@@ -367,7 +393,7 @@ const Home = () => {
                         Courses, Training and Internship Programs
                     </h2>
                     <p className="text-gray-700 text-lg">
-                        geniusfactory offers a combination of training and internship programs,
+                        geniuses factory offers a combination of training and internship programs,
                         providing students with the opportunity to gain practical experience
                         in real-world environments. These programs bridge the gap between
                         academic learning and industry requirements, helping students build a
@@ -388,7 +414,7 @@ const Home = () => {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}>
-                geniusfactory offers hands-on Training, Internships, and Bootcamps, teaching job-ready tech skills in areas like backend, frontend, and AI. With real-world projects, mentorship, and certifications, it’s perfect for building career-ready expertise.
+                geniuses factory offers hands-on Training, Internships, and Bootcamps, teaching job-ready tech skills in areas like backend, frontend, and AI. With real-world projects, mentorship, and certifications, it’s perfect for building career-ready expertise.
             </motion.p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

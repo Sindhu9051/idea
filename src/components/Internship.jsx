@@ -52,7 +52,7 @@ const InternshipForm = () =>
     setLoading(true);
 
     try {
-      const response = await fetch("https://idea-0lof.onrender.com/api/internship", {
+      const response = await fetch("http://localhost:65136/api/internship", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -37,7 +37,7 @@ const AllCrs = () => {
               Learn Without <span className="text-orange-500">Limits</span>
             </motion.h1>
             <motion.p className="text-lg text-gray-300" variants={fadeInLeft} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              Build your future with 200+ hands-on, industry-ready courses. Learn from top experts and get real-world experience.
+              Build your future with 20+ hands-on, industry-ready courses. Learn from top experts and get real-world experience.
             </motion.p>
             <div className="flex flex-wrap items-center gap-4">
               <motion.button className="cursor-pointer bg-orange-500 hover:bg-orange-600 px-6 py-3 rounded-full text-lg font-semibold shadow-lg transition" onClick={() => window.location.href='/courses'} whileHover={{ scale: 1.05 }}
@@ -50,7 +50,7 @@ const AllCrs = () => {
                   <img src="/images/user2.jpg" alt="user2" className="w-10 h-10 rounded-full border-2 border-white" />
                   <img src="/images/user3.jpg" alt="user3" className="w-10 h-10 rounded-full border-2 border-white" />
                 </div>
-                <span className="text-sm text-gray-400">+1,200 students onboard</span>
+                <span className="text-sm text-gray-400">1,200+ students onboard</span>
               </div>
             </div>
           </div>
@@ -58,7 +58,7 @@ const AllCrs = () => {
           <div className="relative w-full max-w-sm mx-auto">
             <div className="bg-white/10 backdrop-blur-md border border-white/10 rounded-3xl p-6 shadow-2xl text-center hover:scale-105 transition">
               <motion.img src="/images/pic.png" alt="Instructor" className="w-40 h-auto mx-auto mb-4 rounded-lg -ms-1" variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} />
-              <p className="text-2xl font-bold">200+ <span className="text-sm font-normal text-gray-400">Courses</span></p>
+              <p className="text-2xl font-bold">20+ <span className="text-sm font-normal text-gray-400">Courses</span></p>
               <div className="flex justify-center mt-6 space-x-2">
                 <span className="w-4 h-4 bg-white rounded-full"></span>
                 <span className="w-4 h-4 bg-orange-500 rounded-full"></span>
@@ -68,8 +68,8 @@ const AllCrs = () => {
             </div>
             <motion.div className="absolute -top-14 right-0 bg-orange-600 text-white px-4 py-3 rounded-xl shadow-xl w-48 text-center" variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
               <motion.img src="/images/pic.png" alt="Instructor" className="w-32 h-auto mx-auto mb-2 rounded-lg" variants={fadeInLeft} initial="hidden" whileInView="visible" viewport={{ once: true }} />
-              <p className="text-lg font-bold">JANE</p>
-              <p className="text-xs">Data Scientist, Google</p>
+              <p className="text-lg font-bold">SINDHU KUMAR</p>
+              <p className="text-xs">CEO & FOUNDER</p>
             </motion.div>
           </div>
         </div>

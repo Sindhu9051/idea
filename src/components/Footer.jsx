@@ -1,15 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaWhatsapp } from 'react-icons/fa';
 
+
 const Footer = () => {
+  const navigate = useNavigate();
+
   return (
     <footer className="bg-gray-900 text-white relative z-10">
       <div className="max-w-7xl mx-auto px-6 py-14 grid md:grid-cols-4 sm:grid-cols-2 gap-10 relative z-10">
 
         {/* Brand & Description */}
         <div>
-          <h2 className="text-3xl font-bold mb-4 text-white">geniusfactory</h2>
+          <h2 className="text-3xl font-bold mb-4 text-white">Geniuses Factory</h2>
           <p className="text-gray-400">Crafting digital experiences with style and soul.</p>
         </div>
 
@@ -28,9 +31,9 @@ const Footer = () => {
         <div>
           <h4 className="text-xl font-semibold mb-4">Newsletter</h4>
           <p className="text-gray-400 mb-3">Stay updated with our latest news.</p>
-          <p><Link to="/subscribe" className="text-blue-500 hover:underline mb-3">Terms & Conditions</Link></p>
-          <p><Link to="/subscribe" className="text-blue-500 hover:underline mb-3">Refund & Cancellation</Link></p>
-          <p><Link to="/subscribe" className="text-blue-500 hover:underline">Privacy & Policy</Link></p>
+          <p className="text-blue-500 hover:underline mb-3 cursor-pointer"  onClick={() => navigate("/terms")}> Terms & Conditions </p>
+          <p className="text-blue-500 hover:underline mb-3 cursor-pointer"  onClick={() => navigate("/refund")}>Refund & Cancellation</p>
+          <p className="text-blue-500 hover:underline cursor-pointer"  onClick={() => navigate("/privacy")}>Privacy & Policy</p>
         </div>
 
         {/* Social Media */}
@@ -48,7 +51,7 @@ const Footer = () => {
 
       {/* Footer Bottom */}
       <div className="border-t border-gray-700 py-6 text-center text-gray-400 text-sm">
-        © {new Date().getFullYear(2025)} geniusfactory || All rights reserved.
+        © {new Date().getFullYear(2025)} Geniuses Factory || All rights reserved.
       </div>
 
       {/* Decorative Background Blur */}

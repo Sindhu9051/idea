@@ -26,26 +26,41 @@ const VerifyCertificate = () => {
   }, []);
 
   // Form submission
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError("");
-    setCertificateData(null);
-    setLoading(true);
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setError("");
+  setCertificateData(null);
+  setLoading(true);
 
-    try {
-      const response = await axios.post("https://idea-0lof.onrender.com/api/certificate", { certificateId });
+  try {
+    // ✅ FIX: singular route "certificate"
+    const response = await axios.post(`http://localhost:65136/api/certificate`, {
+      certificateId,
+    });
 
-      if (response.data.success) {
-        setCertificateData(response.data.data);
-      } else {
-        setError("❌ Certificate ID not found.");
-      }
-    } catch {
-      setError("⚠️ Server error. Please try again later.");
-    } finally {
-      setLoading(false);
+    console.log("✅ Response:", response.data);
+
+    if (response.data.success) {
+      setCertificateData(response.data.data);
+      setError("");
+    } else {
+      setError("⚠️ " + (response.data.error || "Certificate not found"));
     }
-  };
+  } catch (err) {
+    console.error("❌ Axios Error:", err);
+
+    if (err.response && err.response.data && err.response.data.error) {
+      setError("⚠️ " + err.response.data.error);
+    } else if (err.message) {
+      setError("⚠️ " + err.message);
+    } else {
+      setError("⚠️ Server error. Please try again later.");
+    }
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-[#0f172a] text-white">
@@ -57,7 +72,7 @@ const VerifyCertificate = () => {
         ref={bgRef}
         className="absolute -z-10 top-0 left-0 w-full h-full pointer-events-none transition-transform duration-75 ease-out"
       >
-        <div className="w-full h-full bg-[url('https://www.transparenttextures.com/patterns/circuits.png')] bg-cover opacity-10 mix-blend-lighten"></div>
+        <div className="w-full h-full bg-cover opacity-10 mix-blend-lighten"></div>
       </div>
 
       {/* Main container */}

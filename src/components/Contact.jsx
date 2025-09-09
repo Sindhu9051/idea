@@ -43,12 +43,12 @@ export default function ContactPage() {
 
         <div>
           <h2 className="font-semibold text-indigo-300 mb-1">Email</h2>
-          <p>contact@example.com</p>
+          <p>support@example.com</p>
         </div>
 
         <div className="mt-6">
           <h2 className="font-semibold text-indigo-300 mb-1">Phone</h2>
-          <p>+1 (555) 123-4567</p>
+          <p>+91 (555) 123-4567</p>
         </div>
 
         <div className="mt-6">

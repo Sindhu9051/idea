@@ -28,14 +28,18 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
             {/* Logo */}
-            <motion.img 
-                src="images/GF.png" 
-                alt="geniusfactory" 
-                className="h-17 w-17" 
+            <div className="flex items-center space-x-3">
+              <motion.img 
+                src="images/logo.png" 
+                alt="Geniuses Factory" 
+                className="h-17 w-17 p-2 cursor-pointer" 
                 variants={fadeInRight}
                 initial="hidden"
                 animate="visible"
-            />
+              />
+              <h1 className="text-2xl font-bold">Geniuses Factory</h1>
+            </div>
+            
 
             {/* Desktop Menu */}
             <motion.div className="hidden md:flex space-x-8" variants={fadeInLeft} initial="hidden" animate="visible">
@@ -57,7 +61,7 @@ const Navbar = () => {
           </motion.div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center" >
+          <motion.div className="md:hidden flex items-center me-10"  variants={fadeInRight} initial="hidden" animate="visible">
                 <button onClick={toggleMenu} className="text-gray-700 focus:outline-2">
                     <svg
                         className="w-6 h-6"
@@ -81,7 +85,7 @@ const Navbar = () => {
                         )}
                     </svg>
                 </button>
-          </div>
+          </motion.div>
         </div>
       </div>
 
