@@ -1,15 +1,16 @@
-
 {
   "name": "idea",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://Sindhu9051.github.io/idea",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "homepage": "https://Sindhu9051.github.io/idea"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.11",
