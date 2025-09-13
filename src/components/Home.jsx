@@ -136,9 +136,9 @@ const reviews = [
   {
     star: "M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957h4.163c.969 0 1.371 1.24.588 1.81l-3.37 2.449 1.286 3.957c.3.921-.755 1.688-1.538 1.118L10 13.347l-3.37 2.449c-.783.57-1.838-.197-1.538-1.118l1.286-3.957-3.37-2.449c-.783-.57-.38-1.81.588-1.81h4.163l1.286-3.957z",
     name: "Himadri Sarkar",
-    role: "Front-end Trainee",
+    role: "Mern-Stack Trainee",
     review:
-      "The best part of Geniuses Factory is the exceptional mentorship and support. I learned so much about HTML, CSS, and JavaScript in the Front-end program. The instructors make sure every concept is crystal clear, and the certificates are great for showcasing my new technical skills. Highly recommend!",
+      "The best part of Geniuses Factory is the outstanding mentorship and hands-on support. As a MERN Stack trainee, I gained deep knowledge in MongoDB, Express.js, React, and Node.js. The instructors break down complex topics into easy-to-understand lessons, and the practical projects really solidified my learning. The certification is a great addition to my portfolio. Highly recommend for anyone serious about full-stack development!"
   },
 ];
 

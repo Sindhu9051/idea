@@ -57,7 +57,7 @@ const AllCrs = () => {
 
           <div className="relative w-full max-w-sm mx-auto">
             <div className="bg-white/10 backdrop-blur-md border border-white/10 rounded-3xl p-6 shadow-2xl text-center hover:scale-105 transition">
-              <motion.img src="/images/pic.png" alt="Instructor" className="w-40 h-auto mx-auto mb-4 rounded-lg -ms-1" variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} />
+              <motion.img src="/images/ceo1.png" alt="Instructor" className="w-40 h-auto mx-auto mb-4 backdrop-blur-md rounded-lg -ms-1 hover:scale-105" variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} />
               <p className="text-2xl font-bold">20+ <span className="text-sm font-normal text-gray-400">Courses</span></p>
               <div className="flex justify-center mt-6 space-x-2">
                 <span className="w-4 h-4 bg-white rounded-full"></span>
@@ -66,8 +66,8 @@ const AllCrs = () => {
                 <span className="w-4 h-4 bg-orange-500 rounded-full"></span>
               </div>
             </div>
-            <motion.div className="absolute -top-14 right-0 bg-orange-600 text-white px-4 py-3 rounded-xl shadow-xl w-48 text-center" variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              <motion.img src="/images/pic.png" alt="Instructor" className="w-32 h-auto mx-auto mb-2 rounded-lg" variants={fadeInLeft} initial="hidden" whileInView="visible" viewport={{ once: true }} />
+            <motion.div className="absolute -top-14 right-0 bg-orange-600 text-white px-4 py-3 rounded-xl shadow-xl w-48 text-center hover:scale-105" variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+              <motion.img src="/images/ceo.png" alt="Instructor" className="w-32 h-50 mx-auto mb-2 rounded-lg" variants={fadeInLeft} initial="hidden" whileInView="visible" viewport={{ once: true }} />
               <p className="text-lg font-bold">SINDHU KUMAR</p>
               <p className="text-xs">CEO & FOUNDER</p>
             </motion.div>

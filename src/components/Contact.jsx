@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaWhatsapp } from 'react-icons/fa';
+import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaWhatsapp, FaYoutube } from 'react-icons/fa';
 
 export default function ContactPage() {
   const [form, setForm] = useState({
@@ -24,7 +24,7 @@ export default function ContactPage() {
     );
 
     // mailto link dynamically create kar rahe hain
-    window.location.href = `mailto:sindhkumar420@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:thegeniusesfactory@gmail.com?subject=${subject}&body=${body}`;
 
     // Alert ya form reset karna optional hai
     // alert("Thank you for reaching out! We'll get back to you soon.");
@@ -43,12 +43,12 @@ export default function ContactPage() {
 
         <div>
           <h2 className="font-semibold text-indigo-300 mb-1">Email</h2>
-          <p>support@example.com</p>
+          <p>thegeniusesfactory@gmail.com</p>
         </div>
 
         <div className="mt-6">
           <h2 className="font-semibold text-indigo-300 mb-1">Phone</h2>
-          <p>+91 (555) 123-4567</p>
+          <p>+91 (920) 493-2231</p>
         </div>
 
         <div className="mt-6">
@@ -58,7 +58,8 @@ export default function ContactPage() {
             <a href="#"><FaTwitter className="hover:text-indigo-400 transition" /></a>
             <a href="#"><FaInstagram className="hover:text-indigo-400 transition" /></a>
             <a href="#"><FaLinkedinIn className="hover:text-indigo-400 transition" /></a>
-            <a href="#"><FaWhatsapp className="hover:text-indigo-400 transition" /></a>
+            <a href="https://wa.me/919204932231?text=Hello%2C%20Geniuses-Factory%20support%20team%20please%20help%20me!"><FaWhatsapp className="hover:text-indigo-400 transition" /></a>
+            <a href="#"><FaYoutube className="hover:text-indigo-400 transition" /></a>
           </div>
         </div>
       </div>

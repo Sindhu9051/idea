@@ -5,17 +5,22 @@ const teamMembers = [
   {
     name: 'Sindhu Kumar',
     role: 'CEO & Founder',
-    imageUrl: '/images/user2.jpg',
+    imageUrl: '/images/ceo.png',
+  },
+  {
+    name: 'Subham Raj',
+    role: 'Deputy CEO',
+    imageUrl: '/images/ceo1.png',
   },
   {
     name: 'Vivek Kumar',
-    role: 'Ethical Hacker Instructor',
-    imageUrl: 'https://via.placeholder.com/150',
+    role: 'Event Organizer',
+    imageUrl: '/images/vivek.png',
   },
   {
     name: 'Praveen Kumar Saw',
     role: 'Python Instructor',
-    imageUrl: 'https://via.placeholder.com/150',
+    imageUrl: '/images/praveen.png',
   },
   {
     name: 'Nayan Barnwal',
@@ -25,13 +30,24 @@ const teamMembers = [
   {
     name: 'Ankit Kumar',
     role: 'Email Support',
-    imageUrl: 'https://via.placeholder.com/150',
+    imageUrl: '/images/ankit.png',
   },
   {
     name: 'Himadri Sarkar',
     role: 'Frontend Instructor',
+    imageUrl: '/images/himadri.png',
+  },
+  {
+    name: 'Salu Kumari',
+    role: 'Programming Instructor',
+    imageUrl: '/images/salu.png',
+  },
+  {
+    name: 'Tanmay Gain',
+    role: 'Backend Instructor',
     imageUrl: 'https://via.placeholder.com/150',
   },
+  
 ];
 
 export default function About() {

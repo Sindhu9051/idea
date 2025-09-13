@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaWhatsapp } from 'react-icons/fa';
+import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaWhatsapp, FaYoutubeSquare } from 'react-icons/fa';
 
 
 const Footer = () => {
@@ -44,7 +44,8 @@ const Footer = () => {
             <a href="#"><FaTwitter className="hover:text-indigo-400 transition" /></a>
             <a href="#"><FaInstagram className="hover:text-indigo-400 transition" /></a>
             <a href="#"><FaLinkedinIn className="hover:text-indigo-400 transition" /></a>
-            <a href="#"><FaWhatsapp className="hover:text-indigo-400 transition" /></a>
+            <a href="https://wa.me/919204932231?text=Hello%2C%20Geniuses-Factory%20support%20team%20please%20help%20me!"><FaWhatsapp className="hover:text-indigo-400 transition" /></a>
+            <a href="#"><FaYoutubeSquare className="hover:text-indigo-400 transition" /></a>
           </div>
         </div>
       </div>

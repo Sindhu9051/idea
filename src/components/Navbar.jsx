@@ -44,19 +44,22 @@ const Navbar = () => {
             {/* Desktop Menu */}
             <motion.div className="hidden md:flex space-x-8" variants={fadeInLeft} initial="hidden" animate="visible">
                 <motion.a href="/" className="text-white font-bold hover:text-[#864993] transition"  whileHover={{ scale: 1.3 }}>
-                Home
+                  Home
+                </motion.a>
+                <motion.a href="/services" className="text-white font-bold hover:text-[#864993] transition"  whileHover={{ scale: 1.3 }}>
+                  Services
                 </motion.a>
                 <motion.a href="/AllCrs" className="text-white font-bold hover:text-[#864993] transition"  whileHover={{ scale: 1.3 }}>
-                Courses
+                  Courses
                 </motion.a>
                 <motion.a href="/verify-certificates" className="text-white font-bold hover:text-[#864993] transition"  whileHover={{ scale: 1.3 }}>
-                Verify Certificates
+                  Verify Certificates
                 </motion.a>
                 <motion.a href="/about" className="text-white font-bold hover:text-[#864993] transition"  whileHover={{ scale: 1.3 }}>
-                About Us
+                  About Us
                 </motion.a>
                 <motion.a href="/contact" className="text-white font-bold hover:text-[#864993] transition"  whileHover={{ scale: 1.3 }}>
-                Contact Us
+                  Contact Us
                 </motion.a>
           </motion.div>
 
