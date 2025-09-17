@@ -113,9 +113,9 @@ const allCourses = {
       detail: "Build interactive UIs with React and Tailwind CSS.",
       difficulty: "Intermediate",
       rating: 4,
-      duration: "6 weeks + 1 month internship",
+      duration: "2 months + 1 month internship",
       pdf: "/pdfs/react.pdf",
-      price: "₹499",
+      price: "₹1299",
     },
     {
       id: 33,
@@ -126,7 +126,7 @@ const allCourses = {
       rating: 4,
       duration: "3 months + 1 month internship",
       pdf: "/pdfs/frontend.pdf",
-      price: "₹499",
+      price: "₹1499",
     },
     {
       id: 34,
@@ -137,7 +137,7 @@ const allCourses = {
       rating: 4,
       duration: "3 months + 1 month internship",
       pdf: "/pdfs/backend.pdf",
-      price: "₹499",
+      price: "₹1299",
     },
     {
       id: 35,
@@ -148,7 +148,7 @@ const allCourses = {
       rating: 4,
       duration: "4 months + 2 month internship",
       pdf: "/pdfs/fullstack.pdf",
-      price: "₹1599",
+      price: "₹1699",
     },
     {
       id: 36,
@@ -159,7 +159,7 @@ const allCourses = {
       rating: 4,
       duration: "3 months",
       pdf: "/pdfs/sql.pdf",
-      price: "₹999",
+      price: "₹1299",
     },
     {
       id: 37,
@@ -180,6 +180,17 @@ const allCourses = {
       rating: 4,
       duration: "4 month",
       pdf: "/pdfs/php.pdf",
+      price: "₹1499",
+    },
+    {
+      id: 39,
+      name: "C Programming",
+      image: "/images/c.png",
+      detail: "Master C programming with hands-on projects.",
+      difficulty: "Advanced",
+      rating: 4,
+      duration: "4 months + 1 internship",
+      pdf: "/pdfs/c.pdf",
       price: "₹1499",
     },
   ],
@@ -215,7 +226,7 @@ const allCourses = {
       rating: 5,
       duration: "2 months",
       pdf: "/pdfs/tally.pdf",
-      price: "₹399",
+      price: "₹599",
     },
     {
       id: 63,
@@ -283,7 +294,17 @@ const allCourses = {
       pdf: "/pdfs/english.pdf",
       price: "₹999",
     },
-    
+    {
+      id: 70,
+      name: "Competition Exam Preparation",
+      image: "/images/cep.png",
+      detail: "Comprehensive preparation for various competitive exams.",
+      difficulty: "Beginner",
+      rating: 4,
+      duration: "8 months",
+      pdf: "/pdfs/cep.pdf",
+      price: "₹2499",
+    },
   ],
 };
 
@@ -299,7 +320,7 @@ const difficultyColor = {
 const Courses = () => {
   
   const navigate = useNavigate();
-  const [category, setCategory] = useState("Future Geniuses");
+  const [category, setCategory] = useState("IT");
   const [selectedCourse, setSelectedCourse] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
 

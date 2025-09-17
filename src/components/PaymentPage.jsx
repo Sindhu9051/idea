@@ -47,7 +47,7 @@ const PaymentPage = () => {
     }
 
     try {
-      const res = await fetch("http://localhost:65136/api/payment/create-order", {
+      const res = await fetch("https://api.geniusesfactory.com/api/payment/create-order", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ amount: course.price, currency: "INR" }),

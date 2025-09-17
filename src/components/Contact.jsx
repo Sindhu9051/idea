@@ -24,10 +24,10 @@ export default function ContactPage() {
     );
 
     // mailto link dynamically create kar rahe hain
-    window.location.href = `mailto:thegeniusesfactory@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:support@geniusesfactory.com?subject=${subject}&body=${body}`;
 
     // Alert ya form reset karna optional hai
-    // alert("Thank you for reaching out! We'll get back to you soon.");
+    alert("Thank you for reaching out! We'll get back to you soon.");
     // setForm({ name: "", email: "", message: "" });
   };
 
@@ -43,23 +43,22 @@ export default function ContactPage() {
 
         <div>
           <h2 className="font-semibold text-indigo-300 mb-1">Email</h2>
-          <p>thegeniusesfactory@gmail.com</p>
+          <p>support@geniusesfactory.com</p>
         </div>
 
         <div className="mt-6">
           <h2 className="font-semibold text-indigo-300 mb-1">Phone</h2>
-          <p>+91 (920) 493-2231</p>
+          <p>+91 (620) 485-7037</p>
         </div>
 
         <div className="mt-6">
           <h4 className="text-xl font-semibold mb-4">Socials</h4>
           <div className="flex space-x-4 text-white">
-            <a href="#"><FaFacebookF className="hover:text-indigo-400 transition" /></a>
-            <a href="#"><FaTelegram className="hover:text-indigo-400 transition" /></a>
+            <a href="https://www.facebook.com/profile.php?id=61581228530954"><FaFacebookF className="hover:text-indigo-400 transition" /></a>
+            <a href="https://t.me/geniuses_factory"><FaTelegram className="hover:text-indigo-400 transition" /></a>
             <a href="https://www.instagram.com/geniusesfactory?igsh=bWp4OTk0bWo4YzRi"><FaInstagram className="hover:text-indigo-400 transition" /></a>
             <a href="https://www.linkedin.com/in/geniuses-factory-03263b384"><FaLinkedinIn className="hover:text-indigo-400 transition" /></a>
-            <a href="https://wa.me/919204932231?text=Hello%2C%20Geniuses-Factory%20support%20team%20please%20help%20me!"><FaWhatsapp className="hover:text-indigo-400 transition" /></a>
-            <a href="#"><FaYoutube className="hover:text-indigo-400 transition" /></a>
+            <a href="https://wa.me/916204857037?text=Hello%2C%20Geniuses-Factory%20support%20team%20please%20help%20me!"><FaWhatsapp className="hover:text-indigo-400 transition" /></a>
           </div>
         </div>
       </div>

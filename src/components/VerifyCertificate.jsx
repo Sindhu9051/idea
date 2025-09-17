@@ -34,7 +34,7 @@ const handleSubmit = async (e) => {
 
   try {
     // ✅ FIX: singular route "certificate"
-    const response = await axios.post(`http://localhost:65136/api/certificate`, {
+    const response = await axios.post(`https://api.geniusesfactory.com/api/certificate`, {
       certificateId,
     });
 

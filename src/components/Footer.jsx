@@ -40,12 +40,11 @@ const Footer = () => {
         <div>
           <h4 className="text-xl font-semibold mb-4">Follow Us</h4>
           <div className="flex space-x-4 text-white">
-            <a href="#"><FaFacebookF className="hover:text-indigo-400 transition" /></a>
-            <a href="#"><FaTelegram className="hover:text-indigo-400 transition" /></a>
+            <a href="https://www.facebook.com/profile.php?id=61581228530954"><FaFacebookF className="hover:text-indigo-400 transition" /></a>
+            <a href="https://t.me/geniuses_factory"><FaTelegram className="hover:text-indigo-400 transition" /></a>
             <a href="https://www.instagram.com/geniusesfactory?igsh=bWp4OTk0bWo4YzRi"><FaInstagram className="hover:text-indigo-400 transition" /></a>
             <a href="https://www.linkedin.com/in/geniuses-factory-03263b384"><FaLinkedinIn className="hover:text-indigo-400 transition" /></a>
-            <a href="https://wa.me/919204932231?text=Hello%2C%20Geniuses-Factory%20support%20team%20please%20help%20me!"><FaWhatsapp className="hover:text-indigo-400 transition" /></a>
-            <a href="#"><FaYoutubeSquare className="hover:text-indigo-400 transition" /></a>
+            <a href="https://wa.me/916204857037?text=Hello%2C%20Geniuses-Factory%20support%20team%20please%20help%20me!"><FaWhatsapp className="hover:text-indigo-400 transition" /></a>
           </div>
         </div>
       </div>

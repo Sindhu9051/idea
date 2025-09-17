@@ -32,7 +32,7 @@ const WebinarForm = () => {
     setErrorMessage('');
 
     try {
-      const response = await fetch('http://localhost:65136/api/webinar', {
+      const response = await fetch('https://api.geniusesfactory.com/api/webinar', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
