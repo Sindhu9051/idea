@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaWhatsapp, FaYoutubeSquare } from 'react-icons/fa';
+import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaWhatsapp, FaYoutubeSquare, FaTelegram } from 'react-icons/fa';
 
 
 const Footer = () => {
@@ -41,9 +41,9 @@ const Footer = () => {
           <h4 className="text-xl font-semibold mb-4">Follow Us</h4>
           <div className="flex space-x-4 text-white">
             <a href="#"><FaFacebookF className="hover:text-indigo-400 transition" /></a>
-            <a href="#"><FaTwitter className="hover:text-indigo-400 transition" /></a>
-            <a href="#"><FaInstagram className="hover:text-indigo-400 transition" /></a>
-            <a href="#"><FaLinkedinIn className="hover:text-indigo-400 transition" /></a>
+            <a href="#"><FaTelegram className="hover:text-indigo-400 transition" /></a>
+            <a href="https://www.instagram.com/geniusesfactory?igsh=bWp4OTk0bWo4YzRi"><FaInstagram className="hover:text-indigo-400 transition" /></a>
+            <a href="https://www.linkedin.com/in/geniuses-factory-03263b384"><FaLinkedinIn className="hover:text-indigo-400 transition" /></a>
             <a href="https://wa.me/919204932231?text=Hello%2C%20Geniuses-Factory%20support%20team%20please%20help%20me!"><FaWhatsapp className="hover:text-indigo-400 transition" /></a>
             <a href="#"><FaYoutubeSquare className="hover:text-indigo-400 transition" /></a>
           </div>

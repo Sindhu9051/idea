@@ -98,6 +98,9 @@ const Navbar = () => {
           <motion.a href="/" className="block py-2 text-white font-bold hover:text-slate-600">
             Home
           </motion.a>
+          <motion.a href="/services" className="block py-2 text-white font-bold hover:text-slate-600"  whileHover={{ scale: 1.05 }}>
+            Services
+          </motion.a>
           <motion.a href="/AllCrs" className="block py-2 text-white font-bold hover:text-slate-600"  whileHover={{ scale: 1.05 }}>
             Courses
           </motion.a>

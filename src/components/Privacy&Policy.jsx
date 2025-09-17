@@ -84,7 +84,7 @@ export default function PrivacyPolicy() {
             </h2>
             <p className="text-gray-600">
               We may update this Privacy Policy from time to time. Any changes
-              will be posted on this page with an updated date at the top.
+              will be posted on this page with an updated date at the bottom.
             </p>
           </section>
         </div>

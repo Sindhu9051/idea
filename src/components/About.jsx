@@ -38,14 +38,14 @@ const teamMembers = [
     imageUrl: '/images/himadri.png',
   },
   {
-    name: 'Salu Kumari',
+    name: 'Sonali Kumari',
     role: 'Programming Instructor',
-    imageUrl: '/images/salu.png',
+    imageUrl: '/images/sonali.png',
   },
   {
     name: 'Tanmay Gain',
     role: 'Backend Instructor',
-    imageUrl: 'https://via.placeholder.com/150',
+    imageUrl: '/images/tanmoy.png',
   },
   
 ];

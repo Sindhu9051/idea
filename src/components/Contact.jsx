@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaWhatsapp, FaYoutube } from 'react-icons/fa';
+import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaWhatsapp, FaYoutube, FaTelegram } from 'react-icons/fa';
 
 export default function ContactPage() {
   const [form, setForm] = useState({
@@ -55,9 +55,9 @@ export default function ContactPage() {
           <h4 className="text-xl font-semibold mb-4">Socials</h4>
           <div className="flex space-x-4 text-white">
             <a href="#"><FaFacebookF className="hover:text-indigo-400 transition" /></a>
-            <a href="#"><FaTwitter className="hover:text-indigo-400 transition" /></a>
-            <a href="#"><FaInstagram className="hover:text-indigo-400 transition" /></a>
-            <a href="#"><FaLinkedinIn className="hover:text-indigo-400 transition" /></a>
+            <a href="#"><FaTelegram className="hover:text-indigo-400 transition" /></a>
+            <a href="https://www.instagram.com/geniusesfactory?igsh=bWp4OTk0bWo4YzRi"><FaInstagram className="hover:text-indigo-400 transition" /></a>
+            <a href="https://www.linkedin.com/in/geniuses-factory-03263b384"><FaLinkedinIn className="hover:text-indigo-400 transition" /></a>
             <a href="https://wa.me/919204932231?text=Hello%2C%20Geniuses-Factory%20support%20team%20please%20help%20me!"><FaWhatsapp className="hover:text-indigo-400 transition" /></a>
             <a href="#"><FaYoutube className="hover:text-indigo-400 transition" /></a>
           </div>

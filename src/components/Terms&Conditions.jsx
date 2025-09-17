@@ -81,6 +81,9 @@ export default function TermsAndConditions() {
                 <li>Transactions are legally binding once initiated.</li>
                 <li>Refunds (if applicable) follow our refund policy.</li>
                 <li>No liability arises from force majeure events.</li>
+                <li>We may modify or discontinue Services at any time without notice.</li>
+                <li>If you try to misbehave with any teacher or students, you will be immediately expelled from any course, classes or our internship program without any notice and no money will be refunded and we or any faculty will not be held responsible for this.</li>
+                <li>We may suspend or terminate your access for violations of these Terms.</li>
               </ul>
             </section>
 
