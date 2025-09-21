@@ -12,7 +12,7 @@ visible: { opacity: 1, y: 0, transition: { duration: 2 } },
 
 
 
-// Dummy course data categorized into Future Geniuses, IT, and Non-IT
+
 const allCourses = {
   "Future Geniuses": [
     {
@@ -35,7 +35,7 @@ const allCourses = {
       rating: 5,
       duration: "6 months",
       pdf: "/pdfs/beautician.pdf",
-      price: "₹1999",
+      price: "₹2999",
     }
     
   ],
@@ -113,9 +113,9 @@ const allCourses = {
       detail: "Build interactive UIs with React and Tailwind CSS.",
       difficulty: "Intermediate",
       rating: 4,
-      duration: "2 months + 1 month internship",
+      duration: "3 months + 1 month internship",
       pdf: "/pdfs/react.pdf",
-      price: "₹1299",
+      price: "₹1499",
     },
     {
       id: 33,
@@ -227,17 +227,6 @@ const allCourses = {
       duration: "2 months",
       pdf: "/pdfs/tally.pdf",
       price: "₹599",
-    },
-    {
-      id: 63,
-      name: "Figma Designer",
-      image: "/images/figma.png",
-      detail: "Learn graphic design using Figma.",
-      difficulty: "Advanced",
-      rating: 5,
-      duration: "2 months",
-      pdf: "/pdfs/figma.pdf",
-      price: "₹399",
     },
     {
       id: 64,

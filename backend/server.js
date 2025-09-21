@@ -1,26 +1,39 @@
 const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
+const connectDB = require("./db");
 
 const app = express();
-const PORT = process.env.PORT || 65136;
+const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+
+connectDB();
+
+
+app.use(cors({
+  //origin: "https://geniusesfactory.com",
+  origin: "http://localhost:5173",
+  methods: ["GET","POST","PUT","DELETE","OPTIONS"],
+  allowedHeaders: ["Content-Type","Authorization"]
+}));
+
 app.use(express.json());
 
+
 app.get("/", (req, res) => {
-  res.send("Server is working properly.");
+  res.send("Server is running properly 🚀");
 });
 
+
 app.use("/api/certificate", require("./routes/certificate"));
-app.use("/api/webinar", require("./routes/webinar"));
 app.use("/api/bootcamp", require("./routes/bootcamp"));
 app.use("/api/internship", require("./routes/internship"));
 app.use("/api/payment", require("./routes/payment"));
 
-// Test route
-app.get("/", (req, res) => {
-  res.send("Server is running");
+
+app.use((err, req, res, next) => {
+  console.error("❌ Server Error:", err.stack);
+  res.status(500).json({ error: "Internal Server Error" });
 });
 
 app.listen(PORT, () => {

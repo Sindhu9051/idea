@@ -34,7 +34,7 @@ const BootcampForm = () => {
     setErrorMessage('');
 
     try {
-      const response = await fetch('https://api.geniusesfactory.com/api/bootcamp', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/bootcamp`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

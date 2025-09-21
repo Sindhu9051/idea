@@ -81,13 +81,7 @@ const AllCrs = () => {
         <div className="max-w-7xl mx-auto py-20 px-6 md:px-12">
           <motion.h2 className="text-4xl font-bold text-center mb-14" variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>Connect with our Courses, Trainings and Internships Programs</motion.h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <motion.div className="bg-white rounded-2xl shadow-lg p-6" variants={fadeInLeft} initial="hidden" whileInView="visible" viewport={{ once: true }}
-                    whileHover={{ scale: 1.05 }}>
-              <h3 className="text-xl font-semibold mb-2">Free Webinar</h3>
-              <p className="text-sm text-gray-600">Join our free webinars to learn about the latest trends and technologies in the industry. Offer for Random 20 students get free Internship with Certificates.</p>
-              <motion.button className="cursor-pointer mt-4 bg-[#864993] text-white px-4 py-2 rounded-md" onClick={() => navigate('/webinar')} whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}>Webinar Register</motion.button>
-            </motion.div>
+
             <motion.div className="bg-white rounded-2xl shadow-lg p-6" variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
                     whileHover={{ scale: 1.05 }}>
               <h3 className="text-xl font-semibold mb-2">Free Bootcamps + free Certificates</h3>

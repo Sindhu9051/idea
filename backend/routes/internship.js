@@ -1,34 +1,35 @@
 const express = require("express");
 const router = express.Router();
-const { getDb } = require("../db");
+const Internship = require("../models/Internship");
 
-const db = getDb("internship-details");
+router.get("/", (req, res) => {
+  res.json({ message: "Internship API is working ✅" });
+});
 
 router.post("/", async (req, res) => {
   console.log("📦 Internship req.body:", req.body);
-
-  const { email, phone } = req.body;
-
   try {
-    const selector = {
-      selector: {
-        $or: [{ email }, { phone }],
-      },
-    };
+    const { fullName, email, phone } = req.body;
 
-    const existing = await db.find(selector);
+    // ✅ Trim to avoid blank spaces
+    if (!fullName?.trim() || !email?.trim() || !phone?.trim()) {
+      console.log("❌ Missing fields:", { fullName, email, phone });
+      return res.status(400).json({ error: "Full Name, Email, and Phone are required." });
+    }
 
-    if (existing.docs.length > 0) {
+    // ✅ Duplicate check
+    const existing = await Internship.findOne({ $or: [{ email }, { phone }] });
+    if (existing) {
       return res.status(409).json({ error: "Email or Phone already registered." });
     }
 
-    const response = await db.insert(req.body);
-    res.json({ success: true, id: response.id });
+    const internship = new Internship(req.body);
+    await internship.save();
 
+    res.json({ success: true, id: internship._id });
   } catch (err) {
-    console.error("❌ internship details Insert Error:", err);
+    console.error("❌ Internship Insert Error:", err);
     res.status(500).json({ error: "Server error. Try again later." });
   }
 });
-
 module.exports = router;

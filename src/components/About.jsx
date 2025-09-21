@@ -24,17 +24,17 @@ const teamMembers = [
   },
   {
     name: 'Nayan Barnwal',
-    role: 'Email Support',
+    role: 'Support Executive',
     imageUrl: '/images/nayan.jpg',
   },
   {
     name: 'Ankit Kumar',
-    role: 'Email Support',
+    role: 'Support Executive',
     imageUrl: '/images/ankit.png',
   },
   {
     name: 'Himadri Sarkar',
-    role: 'Frontend Instructor',
+    role: 'MERN Stack Instructor',
     imageUrl: '/images/himadri.png',
   },
   {

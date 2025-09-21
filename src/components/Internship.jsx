@@ -52,7 +52,7 @@ const InternshipForm = () =>
     setLoading(true);
 
     try {
-      const response = await fetch("https://api.geniusesfactory.com/api/internship", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/internship`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -188,7 +188,7 @@ const InternshipForm = () =>
           required
         />
         <Input
-          label="Phone"
+          label="WhatsApp No"
           name="phone"
           value={formData.phone}
           onChange={handleChange}

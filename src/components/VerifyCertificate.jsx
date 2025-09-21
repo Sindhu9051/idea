@@ -9,7 +9,7 @@ const VerifyCertificate = () => {
   const [loading, setLoading] = useState(false);
   const bgRef = useRef();
 
-  // Parallax background movement
+
   useEffect(() => {
     const handleMouseMove = (e) => {
       const { innerWidth, innerHeight } = window;
@@ -25,7 +25,6 @@ const VerifyCertificate = () => {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
-  // Form submission
 const handleSubmit = async (e) => {
   e.preventDefault();
   setError("");
@@ -33,8 +32,8 @@ const handleSubmit = async (e) => {
   setLoading(true);
 
   try {
-    // ✅ FIX: singular route "certificate"
-    const response = await axios.post(`https://api.geniusesfactory.com/api/certificate`, {
+
+    const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/certificate`, {
       certificateId,
     });
 
@@ -143,10 +142,7 @@ const handleSubmit = async (e) => {
                         <p className="text-gray-500 font-semibold">Certificate ID</p>
                         <p>{certificateData._id}</p>
                   </div>
-                  <div>
-                        <p className="text-gray-500 font-semibold">Issued Date</p>
-                        <p>{new Date(certificateData.issuedDate).toLocaleDateString()}</p>
-                  </div>
+                  
                     
 
                   {/* Internship Section */}
@@ -167,6 +163,10 @@ const handleSubmit = async (e) => {
                               <p className="text-gray-500 font-semibold">Mentor</p>
                               <p>{certificateData.mentor}</p>
                           </div>
+                          <div>
+                              <p className="text-gray-500 font-semibold">Issued Date</p>
+                              <p>{new Date(certificateData.issuedDate).toLocaleDateString()}</p>
+                          </div>
                         </>
                       )}
                     </>
@@ -179,19 +179,31 @@ const handleSubmit = async (e) => {
                         <p className="text-gray-500 font-semibold">Course</p>
                         <p>{certificateData.course}</p>
                       </div>
+                      <div className="sm:col-span-2">
+                        <p className="text-gray-500 font-semibold">Course Duration</p>
+                        <p>{certificateData.courseDuration}</p>
+                      </div>
                       <div>
                         <p className="text-gray-500 font-semibold">Mentor</p>
                         <p>{certificateData.mentor}</p>
+                      </div>
+                      <div>
+                        <p className="text-gray-500 font-semibold">Issued Date</p>
+                        <p>{new Date(certificateData.issuedDate).toLocaleDateString()}</p>
                       </div>
                     </>
                   )}
 
                   {/* Job Section */}
-                  {certificateData.job && (
+                  {certificateData.jobRole && (
                   <>
                       <div>
+                        <p className="text-gray-500 font-semibold">employeeId</p>
+                        <p>{certificateData.employeeId}</p>
+                      </div>
+                      <div>
                       <p className="text-gray-500 font-semibold">Job Role</p>
-                      <p>{certificateData.job}</p>
+                      <p>{certificateData.jobRole}</p>
                       </div>
                       <div>
                       <p className="text-gray-500 font-semibold">Company</p>
@@ -201,12 +213,16 @@ const handleSubmit = async (e) => {
                       <p className="text-gray-500 font-semibold">Location</p>
                       <p>{certificateData.location}</p>
                       </div>
+                      <div>
+                              <p className="text-gray-500 font-semibold">Joining Date</p>
+                              <p>{new Date(certificateData.joiningDate).toLocaleDateString()}</p>
+                      </div>
                   </>
                   )}
                 </div>
                         <div className="mt-8 text-center">
                           <p className="text-gray-500 font-semibold">If you need more details regarding this certificate / view certificate pdf, please fill out the link given below and contact us.</p>
-                          <h3 className="text-blue-500 hover:underline cursor-pointer" onClick={() => {window.location.href = 'mailto:sindhukumarfrontenddev@gmail.com'}}>Contact Us</h3>
+                          <h3 className="text-blue-500 hover:underline cursor-pointer" onClick={() => {window.location.href = 'mailto:thegeniusesfactory@gmail.com'}}>Contact Us</h3>
                         </div>
                         <p className="text-gray-500 font-semibold text-center mt-5">Thank you for verifying your certificate with us!</p>
 
