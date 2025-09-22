@@ -159,7 +159,7 @@ const Home = () => {
             />
             <meta
             name="keywords"
-            content="Geniuses Factory, coding, AI, robotics"
+            content="Geniuses Factory, coding, AI, robotics", "Genius Factory is the best platform for startups who want to do their business online through websites. It is very good for them and is no less than a boon for fresher students because in this you get live classes, hands-on experience and for those who want to learn technical skills, there are 20++ courses."
             />
         </Helmet>
         <section variants={fadeInUp} className="py-20 ">
@@ -180,7 +180,7 @@ const Home = () => {
                             <motion.button whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                                 className="bg-[#864993] font-bold hover:border-2 border-dotted text-white px-6 py-3 rounded-xl shadow transition mt-1 me-2" 
-                                onClick={() => navigate('/webinar')}>
+                                onClick={() => navigate('/bootcamp')}>
                                 Get Started
                             </motion.button>
 
