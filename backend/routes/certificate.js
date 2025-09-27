@@ -11,7 +11,7 @@ router.post("/", async (req, res) => {
   }
 
   try {
-    // check valid MongoDB ObjectId
+
     if (!mongoose.Types.ObjectId.isValid(certificateId)) {
       return res.status(400).json({ success: false, error: "Invalid Certificate ID format" });
     }

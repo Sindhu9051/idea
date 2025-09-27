@@ -115,7 +115,7 @@ export default function About() {
             <p className="text-gray-600 mb-6">
               Want to collaborate with us or have a project in mind? We're ready to talk.
             </p>
-            <button className="inline-block bg-blue-600 text-white px-6 py-3 rounded-md text-base font-medium hover:bg-blue-700 transition" onClick={() => window.location.href = 'mailto:sindhukumarfrontenddev@gmail.com'}>
+            <button className="inline-block bg-blue-600 text-white px-6 py-3 rounded-md text-base font-medium hover:bg-blue-700 transition" onClick={() => window.location.href = 'mailto:thegeniusesfactory@gmail.com'}>
               Contact Us
             </button>
           </div>

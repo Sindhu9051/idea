@@ -155,7 +155,7 @@ const Home = () => {
             <title>Geniuses Factory | Best Coding & AI Learning Platform</title>
             <meta
             name="description"
-            content="Learn coding, AI, and robotics at Geniuses Factory."
+            content="Learn coding, AI, and robotics at Geniuses Factory. Genius Factory is the best platform for startups who want to do their business online through websites. It is very good for them and is no less than a boon for fresher students because in this you get live classes, hands-on experience and for those who want to learn technical skills, there are 20++ courses."
             />
             <meta
             name="keywords"
@@ -180,7 +180,7 @@ const Home = () => {
                             <motion.button whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                                 className="bg-[#864993] font-bold hover:border-2 border-dotted text-white px-6 py-3 rounded-xl shadow transition mt-1 me-2" 
-                                onClick={() => navigate('/webinar')}>
+                                onClick={() => navigate('/bootcamp')}>
                                 Get Started
                             </motion.button>
 
