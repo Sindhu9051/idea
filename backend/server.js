@@ -11,8 +11,8 @@ connectDB();
 
 
 app.use(cors({
-  //origin: "https://geniusesfactory.com",
-  origin: "http://localhost:5173",
+  origin: "https://geniusesfactory.com",
+  //origin: "http://localhost:5173",
   methods: ["GET","POST","PUT","DELETE","OPTIONS"],
   allowedHeaders: ["Content-Type","Authorization"]
 }));
