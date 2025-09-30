@@ -10,12 +10,15 @@ const PORT = process.env.PORT || 5000;
 connectDB();
 
 
-app.use(cors({
-  origin: "https://geniusesfactory.com",
-  //origin: "http://localhost:5173",
-  methods: ["GET","POST","PUT","DELETE","OPTIONS"],
-  allowedHeaders: ["Content-Type","Authorization"]
-}));
+app.use(
+  cors({
+    origin: ["https://geniusesfactory.com"],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true, 
+  })
+);
+
 
 app.use(express.json());
 
@@ -35,6 +38,7 @@ app.use((err, req, res, next) => {
   console.error("❌ Server Error:", err.stack);
   res.status(500).json({ error: "Internal Server Error" });
 });
+
 
 app.listen(PORT, () => {
   console.log(`✅ Server running on port ${PORT}`);
