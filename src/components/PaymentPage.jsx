@@ -5,6 +5,7 @@ import Confetti from "react-confetti";
 const PaymentPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
+
   const course = location.state || {
     name: "React Course",
     price: 4999,
@@ -20,6 +21,7 @@ const PaymentPage = () => {
     height: window.innerHeight,
   });
   const [isPayClicked, setIsPayClicked] = useState(false);
+  const [scriptError, setScriptError] = useState(false);
 
   const isUserInfoFilled = userName.trim() !== "" && userEmail.trim() !== "";
 
@@ -30,9 +32,28 @@ const PaymentPage = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // ✅ Load Razorpay script
+  // ✅ Load Razorpay script (only once)
   const loadRazorpayScript = () => {
     return new Promise((resolve) => {
+      // If already loaded
+      if (window.Razorpay) {
+        resolve(true);
+        return;
+      }
+      // If script already exists but not yet loaded
+      if (
+        document.querySelector(
+          `script[src="https://checkout.razorpay.com/v1/checkout.js"]`
+        )
+      ) {
+        document
+          .querySelector(
+            `script[src="https://checkout.razorpay.com/v1/checkout.js"]`
+          )
+          .addEventListener("load", () => resolve(true));
+        return;
+      }
+
       const script = document.createElement("script");
       script.src = "https://checkout.razorpay.com/v1/checkout.js";
       script.onload = () => resolve(true);
@@ -49,16 +70,17 @@ const PaymentPage = () => {
     }
 
     setIsPayClicked(true);
+    setScriptError(false);
 
     const isScriptLoaded = await loadRazorpayScript();
-    if (!isScriptLoaded) {
-      alert("Razorpay SDK failed to load");
+    if (!isScriptLoaded || !window.Razorpay) {
+      setScriptError(true);
       setIsPayClicked(false);
       return;
     }
 
     try {
-      // 1. Order create
+      // 1. Order create from backend
       const res = await fetch(
         `${import.meta.env.VITE_API_URL}/api/payment/create-order`,
         {
@@ -72,14 +94,14 @@ const PaymentPage = () => {
 
       // 2. Razorpay checkout options
       const options = {
-        key: import.meta.env.VITE_RAZORPAY_KEY_ID, // ✅ env se lo
+        key: import.meta.env.VITE_RAZORPAY_KEY_ID,
         amount: orderData.amount,
         currency: orderData.currency,
         name: "Edu Platform",
         description: course.name,
         order_id: orderData.id,
         handler: async function (response) {
-          // 3. Backend verify call
+          // 3. Verify payment
           const verifyRes = await fetch(
             `${import.meta.env.VITE_API_URL}/api/payment/verify-payment`,
             {
@@ -120,6 +142,7 @@ const PaymentPage = () => {
           gravity={0.3}
         />
       )}
+
       <div className="w-full max-w-5xl flex flex-col md:flex-row gap-6">
         {/* Left */}
         <div
@@ -181,16 +204,29 @@ const PaymentPage = () => {
                   className="w-full border border-gray-300 rounded-xl px-5 py-3 focus:ring-2 focus:ring-indigo-500 outline-none shadow-sm"
                 />
               </div>
+
+              {scriptError && (
+                <p className="text-red-500 text-sm mb-4 text-center">
+                  ⚠️ Razorpay SDK failed to load.{" "}
+                  <button
+                    onClick={handleRazorpayPayment}
+                    className="text-indigo-600 underline"
+                  >
+                    Retry
+                  </button>
+                </p>
+              )}
+
               <button
                 onClick={handleRazorpayPayment}
-                disabled={!isUserInfoFilled}
+                disabled={!isUserInfoFilled || isPayClicked}
                 className={`w-full py-4 rounded-xl font-bold text-white text-lg transition-all ${
-                  !isUserInfoFilled
+                  !isUserInfoFilled || isPayClicked
                     ? "bg-gray-400 cursor-not-allowed"
                     : "bg-gradient-to-r from-indigo-500 to-purple-500 hover:scale-105 shadow-lg"
                 }`}
               >
-                Pay ₹ {course.price} via Razorpay
+                {isPayClicked ? "Processing..." : `Pay ₹ ${course.price} via Razorpay`}
               </button>
             </>
           ) : (
