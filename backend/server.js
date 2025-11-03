@@ -10,14 +10,11 @@ const PORT = process.env.PORT || 5000;
 connectDB();
 
 
-app.use(
-  cors({
-    origin: ["https://geniusesfactory.com"],
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-    credentials: true, 
-  })
-);
+app.use(cors({
+  origin: ["http://localhost:5173"],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
 
 
 app.use(express.json());

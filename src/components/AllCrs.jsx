@@ -86,8 +86,15 @@ const AllCrs = () => {
                     whileHover={{ scale: 1.05 }}>
               <h3 className="text-xl font-semibold mb-2">Free Bootcamps + free Certificates</h3>
               <p className="text-sm text-gray-600">Join our free bootcamps to gain hands-on experience and earn certificates upon completion. If any body have complete the bootcamp then 10 lucky students they will get free internship with certificates.</p>
-              <motion.button className="cursor-pointer mt-4 bg-[#864993] text-white px-4 py-2 rounded-md" onClick={() => navigate('/bootcamp')} whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}>Register Now</motion.button>
+              <motion.button
+                className="cursor-pointer mt-4 bg-[#864993] text-white px-4 py-2 rounded-md"
+                onClick={() => window.open('https://forms.gle/wKxbWAuVGF7u55EL9', '_blank')}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                Register Now
+              </motion.button>
+
             </motion.div>
             <motion.div className="bg-white rounded-2xl shadow-lg p-6" variants={fadeInRight} initial="hidden" whileInView="visible" viewport={{ once: true }}
               whileHover={{ scale: 1.05 }}>
@@ -100,8 +107,15 @@ const AllCrs = () => {
                     whileHover={{ scale: 1.05 }}>
               <h3 className="text-xl font-semibold mb-2">Internship + Certification</h3>
               <p className="text-sm text-gray-600">Get real-world experience through hands-on internships and earn an industry-recognized certification. Boost your resume and stand out in the job market with practical skills that matter.</p>
-              <motion.button className="cursor-pointer mt-4 bg-[#864993] text-white px-4 py-2 rounded-md" onClick={() => navigate('/internship')} whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}>Register Now</motion.button>
+              <motion.button
+                className="cursor-pointer mt-4 bg-[#864993] text-white px-4 py-2 rounded-md"
+                onClick={() => window.open('https://forms.gle/9RzAC6wqiP9KZca17', '_blank')}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                Register Now
+              </motion.button>
+
             </motion.div>
           </div>
         </div>

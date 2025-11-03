@@ -11,9 +11,7 @@ import Footer from './components/Footer';
 
 import { HelmetProvider } from "react-helmet-async";
 
-import BootcampForm from './components/Bootcamp';
 import Courses from './components/Courses';
-import InternshipForm from './components/Internship';
 import PaymentPage from "./components/PaymentPage";
 
 import TermsAndConditions from './components/Terms&Conditions';
@@ -32,9 +30,7 @@ function App() {
           <Route path="/verify-certificates" element={<VerifyCertificate />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/bootcamp" element={<BootcampForm />} />
           <Route path="/courses" element={<Courses />} />
-          <Route path="/internship" element={<InternshipForm />} />
           <Route path="/payment" element={<PaymentPage />} />
           <Route path="/terms" element={<TermsAndConditions />} />
           <Route path="/refund" element={<RefundPolicy />} />

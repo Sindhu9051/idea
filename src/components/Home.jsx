@@ -1,8 +1,10 @@
-import React from "react";
-import { useNavigate } from 'react-router-dom';
+
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 // eslint-disable-next-line no-unused-vars
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from "framer-motion";
+import { MessageCircle } from "lucide-react";
 
 
 
@@ -31,6 +33,13 @@ const fadeInRight = {
 hidden: { opacity: 0, x: 60 },
 visible: { opacity: 1, x: 0, transition: { duration: 1 } },
 };
+
+const options = [
+  { label: "Domain & Hosting Solutions", msg: "Hello! I’m looking for reliable Domain, Hosting, and Email services for my business website. Please guide me through the process." },
+  { label: "Website Development", msg: "Hi! I’m looking for a Website Development service." },
+  { label: "Training and Internship", msg: "Hi! I want to know about Training and Internship programs." },
+  { label: "About Courses", msg: "Hello! I’m interested in joining one of your courses. Can you guide me on which one is best for me?" },
+];
 
 const technologies = [
     { name: "Ethical Hacking", logo: "images/hack.png" },
@@ -72,14 +81,14 @@ const services = [
     title: 'Internship',
     description: `Geniuses Factory offers hands-on internships in frontend, backend, and full-stack development, providing real-world experience and mentorship to help interns build their skills and prepare for tech careers.`,
     button: 'Internship',
-    id: 'internship',
+    //id: 'internship-forms',
   },
   {
     boximg: "images/bootcamp.png",
     title: 'Bootcamp',
     description: `Geniuses Factory's upcoming Bootcamp offers intensive training in web development, AI/ML, Ethical Hacking and more. Through expert-led sessions, practical assignments, and hands-on projects, you'll gain job-ready skills in no time.`,
     button: 'Bootcamp',
-    id: 'bootcamp',
+    id: 'https://forms.gle/Q3DEZ3876XV7Hsnw7',
   },
   {
     boximg: "images/team work.png",
@@ -92,49 +101,42 @@ const services = [
 
 const reviews = [
   {
-    star: "M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957h4.163c.969 0 1.371 1.24.588 1.81l-3.37 2.449 1.286 3.957c.3.921-.755 1.688-1.538 1.118L10 13.347l-3.37 2.449c-.783.57-1.838-.197-1.538-1.118l1.286-3.957-3.37-2.449c-.783-.57-.38-1.81.588-1.81h4.163l1.286-3.957z",
     name: "Atish Kumar",
     role: "Front-End Intern",
     review:
       "Joining Geniuses Factory has been one of the best decisions in my learning journey! The training sessions are packed with real-world insights, and the projects truly challenge you to apply what you learn. From backend essentials to advanced web development techniques, this program gives you all the tools you need to succeed!",
   },
   {
-    star: "M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957h4.163c.969 0 1.371 1.24.588 1.81l-3.37 2.449 1.286 3.957c.3.921-.755 1.688-1.538 1.118L10 13.347l-3.37 2.449c-.783.57-1.838-.197-1.538-1.118l1.286-3.957-3.37-2.449c-.783-.57-.38-1.81.588-1.81h4.163l1.286-3.957z",
     name: "Joydeep Banerjee",
     role: "Back-End Trainee",
     review:
       "A fantastic platform for college students looking to boost their skills! Geniuses Factory combines practical training with an internship experience that makes you feel like a real developer. I completed my backend training here and am now much more job-ready – thank you, Geniuses Factory!",
   },
   {
-    star: "M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957h4.163c.969 0 1.371 1.24.588 1.81l-3.37 2.449 1.286 3.957c.3.921-.755 1.688-1.538 1.118L10 13.347l-3.37 2.449c-.783.57-1.838-.197-1.538-1.118l1.286-3.957-3.37-2.449c-.783-.57-.38-1.81.588-1.81h4.163l1.286-3.957z",
     name: "Priyanshu Kumari",
     role: "Python Intern",
     review:
       "Geniuses Factory internship program has been an eye-opener! The hands-on experience with industry-relevant projects and one-on-one guidance is unmatched. Not only did I learn new skills, but I also gained confidence to take on bigger challenges in my tech career!",
   },
   {
-    star: "M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957h4.163c.969 0 1.371 1.24.588 1.81l-3.37 2.449 1.286 3.957c.3.921-.755 1.688-1.538 1.118L10 13.347l-3.37 2.449c-.783.57-1.838-.197-1.538-1.118l1.286-3.957-3.37-2.449c-.783-.57-.38-1.81.588-1.81h4.163l1.286-3.957z",
     name: "Tanmoy Gain",
     role: "Back-End Trainee",
     review:
       "The best part of Geniuses Factory is the exceptional mentorship and support. I learned so much about Node.js, MongoDB, and API development in the backend program. The instructors make sure every concept is crystal clear, and the certificates are great for showcasing my new technical skills. Highly recommend!",
   },
   {
-    star: "M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957h4.163c.969 0 1.371 1.24.588 1.81l-3.37 2.449 1.286 3.957c.3.921-.755 1.688-1.538 1.118L10 13.347l-3.37 2.449c-.783.57-1.838-.197-1.538-1.118l1.286-3.957-3.37-2.449c-.783-.57-.38-1.81.588-1.81h4.163l1.286-3.957z",
     name: "Vivek Kumar",
     role: "Ethical Hacking Trainee",
     review:
       "The best part of Geniuses Factory is the exceptional mentorship and support. I learned so much about ethical hacking techniques, penetration testing, and security protocols in the ethical hacking program. The instructors make sure every concept is crystal clear, and the certificates are great for showcasing my new technical skills. Highly recommend!",
   },
   {
-    star: "M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957h4.163c.969 0 1.371 1.24.588 1.81l-3.37 2.449 1.286 3.957c.3.921-.755 1.688-1.538 1.118L10 13.347l-3.37 2.449c-.783.57-1.838-.197-1.538-1.118l1.286-3.957-3.37-2.449c-.783-.57-.38-1.81.588-1.81h4.163l1.286-3.957z",
     name: "Praveen Kumar Saw",
     role: "Python Trainee",
     review:
       "The best part of Geniuses Factory is the exceptional mentorship and support. I learned so much about Python, Flask, and API development in the Python program. The instructors make sure every concept is crystal clear, and the certificates are great for showcasing my new technical skills. Highly recommend!",
   },
   {
-    star: "M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957h4.163c.969 0 1.371 1.24.588 1.81l-3.37 2.449 1.286 3.957c.3.921-.755 1.688-1.538 1.118L10 13.347l-3.37 2.449c-.783.57-1.838-.197-1.538-1.118l1.286-3.957-3.37-2.449c-.783-.57-.38-1.81.588-1.81h4.163l1.286-3.957z",
     name: "Himadri Sarkar",
     role: "Mern-Stack Trainee",
     review:
@@ -144,7 +146,24 @@ const reviews = [
 
 const Home = () => {
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+
+  const [isOpen, setIsOpen] = useState(false);
+  const [hasNewMessage, setHasNewMessage] = useState(true);
+
+  const phoneNumber = "916204857037";
+
+  const handleOptionClick = (message) => {
+    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(url, "_blank");
+  };
+
+  const toggleChat = () => {
+    setIsOpen(!isOpen);
+    setHasNewMessage(false);
+  };
+
+
 
 
 
@@ -210,6 +229,65 @@ const Home = () => {
                     </motion.div>
             </motion.div>
         </section>
+
+        {/* ✨ NEW SECTION: We Design & Develop Websites */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6 text-center">
+          <motion.h2
+            className="text-4xl font-bold text-[#864993] mb-6"
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            We Design & Develop Websites
+          </motion.h2>
+
+          <motion.p
+            className="max-w-3xl mx-auto text-gray-700 mb-12"
+            variants={fadeInRight}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            From modern websites to powerful online stores, we craft responsive,
+            SEO-friendly digital experiences to help your business grow online.
+          </motion.p>
+
+          {/* Horizontal scrollable image gallery */}
+          <motion.div
+            className="flex overflow-x-auto space-x-6 pb-4 snap-x snap-mandatory justify-start md:justify-center"
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            {["web1.jpg", "web2.jpg", "web3.jpg", "web4.jpg"].map((img, i) => (
+              <motion.div
+                key={i}
+                className="snap-center shrink-0 w-80 h-56 rounded-xl shadow-lg overflow-hidden"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.4 }}
+              >
+                <img
+                  src={`images/${img}`}
+                  alt={`Web Design ${i + 1}`}
+                  className="w-full h-full object-cover"
+                />
+              </motion.div>
+            ))}
+          </motion.div>
+
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={() => navigate("/services")}
+            className="mt-10 bg-[#864993] text-white px-6 py-3 rounded-xl font-semibold shadow-lg"
+          >
+            Explore Our Web Solutions
+          </motion.button>
+        </div>
+      </section>
 
 
         <section>
@@ -403,93 +481,186 @@ const Home = () => {
             </div>
         </div>
 
-        <section className="py-16 px-6 text-center">
-            <motion.h2 className="text-4xl font-semibold text-purple-700 mb-6" variants={fadeInUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}>
-                Our main services
-            </motion.h2>
-            <motion.p className="max-w-2xl mx-auto text-gray-700 mb-12" variants={fadeInRight}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}>
-                geniuses factory offers hands-on Training, Internships, and Bootcamps, teaching job-ready tech skills in areas like backend, frontend, and AI. With real-world projects, mentorship, and certifications, it’s perfect for building career-ready expertise.
-            </motion.p>
+        {/* Main Services */}
+      <section className="py-16 px-6 text-center">
+        <motion.h2
+          className="text-4xl font-semibold text-purple-700 mb-6"
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          Our Main Services
+        </motion.h2>
+        <motion.p
+          className="max-w-2xl mx-auto text-gray-700 mb-12"
+          variants={fadeInRight}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          Geniuses Factory offers hands-on Training, Internships, and Bootcamps, teaching job-ready tech skills.
+        </motion.p>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {services.map((service, index) => (
-                <motion.div key={index}
-                    variants={fadeInUp}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    whileHover={{ scale: 1.05 }}
-                    className="bg-blue-100 p-6 rounded-3xl shadow-md">
-                    <img
-                        src={service.boximg}
-                        alt="Service illustration"
-                        className="w-40 h-40 mx-auto mb-6"
-                    />
-                    <p className="text-gray-800 mb-6">{service.description}</p>
-                    <motion.button
-                        whileHover={{ scale: 1.2 }}
-                        whileTap={{ scale: 0.9 }}
-                        className="bg-white border border-gray-400 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-50 transition" onClick={() => navigate(`/${service.id}`)}>
-                        {service.button}
-                    </motion.button>
-                </motion.div>
-                ))}
-            </div>
-        </section>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {services.map((service, index) => (
+            <motion.div
+              key={index}
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.05 }}
+              className="bg-blue-100 p-6 rounded-3xl shadow-md"
+            >
+              <img
+                src={service.boximg}
+                alt="Service illustration"
+                className="w-40 h-40 mx-auto mb-6"
+              />
+              <p className="text-gray-800 mb-6">{service.description}</p>
 
-        <div className="min-h-screen p-8">
-            {/* Title */}
-            <motion.h1 
-                className="text-4xl font-bold text-purple-700 text-center mb-12"
-                variants={fadeInUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}>
-                Reviews
-            </motion.h1>
-
-            <div className="flex justify-center mb-8">
-                <motion.img src="/images/review.png" alt="Review" className="w-100 h-50" variants={fadeInLeft} initial="hidden" whileInView="visible" viewport={{ once: true }} whileHover={{ scale: 1.3 }} />
-            </div>
-
-            <div className="flex flex-col lg:flex-row lg:flex-wrap gap-8 justify-center items-center">
-                {/* Review Cards */}
-                {reviews.map((review, index) => (
-                <motion.div key={index} className="bg-white w-full max-w-md shadow-lg rounded-lg p-6" variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} whileHover={{ scale: 1.05 }}>
-
-                    {/* Stars */}
-                    <div className="flex mb-4">
-                    {[...Array(5)].map((_, i) => (
-                        <svg key={i} className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                        <path d={review.star} />
-                        </svg>
-                    ))}
-                    </div>
-
-                    {/* Review Text */}
-                    <p className="text-gray-700 mb-6">{review.review}</p>
-
-                    {/* Reviewer */}
-                    <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">
-                        <span className="text-xl">👤</span>
-                    </div>
-                    <div>
-                        <p className="font-semibold text-black">{review.name}</p>
-                        <p className="text-sm text-gray-500">{review.role}</p>
-                    </div>
-                    </div>
-                </motion.div>
-                ))}
-
-            </div>
+              {/* ✅ Updated Button Logic */}
+              <motion.button
+                whileHover={{ scale: 1.2 }}
+                whileTap={{ scale: 0.9 }}
+                className="bg-white border border-gray-400 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-50 transition"
+                onClick={() => {
+                  if (service.title === "Bootcamp") {
+                    window.open("https://forms.gle/aJoWL4QxhbWxG7nr6", "_blank");
+                  } else if (service.title === "Internship") {
+                    window.open("https://forms.gle/jLv2C3XajhdwfHSZ7", "_blank");
+                  } else if (service.title === "Team Work Projects") {
+                    alert("Team Work Project link will be available soon!");
+                  } else {
+                    navigate(`/${service.id}`);
+                  }
+                }}
+              >
+                {service.button}
+              </motion.button>
+            </motion.div>
+          ))}
         </div>
+      </section>
+
+        <div className="min-h-screen px-6 py-20 bg-gradient-to-br from-white via-purple-50 to-blue-50">
+  {/* Title */}
+  <motion.h1
+    className="text-5xl font-extrabold text-center mb-6 bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent"
+    variants={fadeInUp}
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true }}
+  >
+    Ratings
+  </motion.h1>
+
+  {/* Subtext */}
+  <motion.p
+    className="text-center text-gray-600 max-w-2xl mx-auto mb-14"
+    variants={fadeInUp}
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true }}
+  >
+    Real feedback from students who have experienced growth, skill-building,
+    and transformation with <span className="font-semibold text-purple-700">Geniuses Factory</span>.
+  </motion.p>
+
+  {/* Illustration */}
+  <div className="flex justify-center mb-14">
+    <motion.img
+      src="/images/review.png"
+      alt="Review Illustration"
+      className="w-80 h-auto drop-shadow-md hover:drop-shadow-xl transition-all"
+      variants={fadeInLeft}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      whileHover={{ scale: 1.05 }}
+    />
+  </div>
+
+        {/* Review Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 justify-center">
+          {reviews.map((review, index) => (
+            <motion.div
+              key={index}
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.03, y: -6 }}
+              transition={{ type: "spring", stiffness: 200 }}
+              className="bg-white/70 backdrop-blur-md border border-purple-100 shadow-lg rounded-3xl p-8 text-left transition-all duration-300 hover:shadow-2xl"
+            >
+              {/* Quote Icon */}
+              <div className="mb-4 text-purple-500 text-4xl leading-none">“</div>
+
+              {/* Review Text */}
+              <p className="text-gray-700 mb-6 text-sm leading-relaxed italic">
+                {review.review}
+              </p>
+
+              {/* Reviewer */}
+              <div className="flex items-center gap-4 mt-auto">
+                <div className="w-12 h-12 bg-gradient-to-br from-purple-300 to-blue-300 rounded-full flex items-center justify-center text-2xl shadow-md">
+                  👤
+                </div>
+                <div>
+                  <p className="font-semibold text-gray-900 text-base">
+                    {review.name}
+                  </p>
+                  <p className="text-sm text-gray-500">{review.role}</p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+              </div>
+
+           {/* ✅ WhatsApp Chat Widget */}
+      <div className="fixed bottom-6 right-6 z-50">
+        <motion.button
+          onClick={toggleChat}
+          className="bg-green-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg relative hover:scale-105 transition-transform"
+        >
+          <MessageCircle className="w-7 h-7" />
+          {hasNewMessage && <span className="absolute top-2 right-2 w-3 h-3 bg-red-500 rounded-full animate-ping" />}
+        </motion.button>
+
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 50 }}
+              transition={{ duration: 0.3 }}
+              className="absolute bottom-20 right-0 bg-white shadow-2xl rounded-2xl w-72 overflow-hidden border border-gray-200"
+            >
+              <div className="p-4 border-b bg-gray-50 text-gray-800">
+                <p className="font-semibold">👋 Hi! Welcome to Geniuses Factory</p>
+                <p className="text-sm text-gray-500 mt-1">How can I help you today?</p>
+              </div>
+
+              <div className="p-4 flex flex-col gap-3">
+                {options.map((opt, i) => (
+                  <motion.button
+                    key={i}
+                    onClick={() => handleOptionClick(opt.msg)}
+                    whileHover={{ scale: 1.03 }}
+                    className="text-green-700 font-medium border border-green-600 px-3 py-2 rounded-full text-sm hover:bg-green-600 hover:text-white transition"
+                  >
+                    {opt.label}
+                  </motion.button>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+
     </>
   );
 };
